@@ -4,7 +4,7 @@ const TodoForm = ({ addTodo, id, title, complete, updateTodo, setEdit }) => {
   // title complete, id db
   // attr of what the user can input, datatype
   // have complete be false, b/c you create that is a new todo
-  const [todo, setTodo] = useState({ title: '', complete: false, age: '', date: '' })
+  const [todo, setTodo] = useState({ title: '', complete: false, age: '', going: '', phone: '' })
 
   // if it is a update then pre fill out the form
   useEffect( () => {
@@ -94,15 +94,22 @@ const TodoForm = ({ addTodo, id, title, complete, updateTodo, setEdit }) => {
           required
           placeholder="title"
         />
-        <input 
-          // these three for it to work
-          name='date' // what is the field for
-          value={todo.date}
-          onChange={(e) => setTodo({ ...todo, date: Date.now() })}
-          type='date'
-          // optional
-          hidden
-          placeholder="title"
+        <select
+        name='going'
+        value={todo.going}
+        onChange={(e) => setEntry({...todo, going: e.target.value })}
+        required
+      >
+        <option value="Accepts">Joyfully Accepts</option>
+        <option value="Declines">Respectfully Declines</option>
+      </select>
+      <input
+          type="tel" 
+          placeholder="Phone Number" 
+          name='phone'
+          value={todo.phone}
+          onChange={(e) => setEntry({...todo, phone: e.target.value })}
+          required
         />
         <button type='submit'>Submit</button>
       </form>
