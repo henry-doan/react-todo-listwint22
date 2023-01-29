@@ -97,7 +97,7 @@ const TodoForm = ({ addTodo, id, title, complete, updateTodo, setEdit }) => {
         <select
         name='going'
         value={todo.going}
-        onChange={(e) => setEntry({...todo, going: e.target.value })}
+        onChange={(e) => setTodo({...todo, going: e.target.value })}
         required
       >
         <option value="Accepts">Joyfully Accepts</option>
@@ -108,7 +108,7 @@ const TodoForm = ({ addTodo, id, title, complete, updateTodo, setEdit }) => {
           placeholder="Phone Number" 
           name='phone'
           value={todo.phone}
-          onChange={(e) => setEntry({...todo, phone: e.target.value })}
+          onChange={(e) => setTodo({...todo, phone: e.target.value })}
           required
         />
         <button type='submit'>Submit</button>
