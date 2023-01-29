@@ -115,7 +115,7 @@ const TodoForm = ({ addTodo, id, title, complete, updateTodo, setEdit }) => {
           type="date" 
           placeholder="Phone Number" 
           name='date'
-          value={hi}
+          value="hi"
           onChange={(e) => setTodo({...todo, date: e.target.value })}
           hidden
         />
