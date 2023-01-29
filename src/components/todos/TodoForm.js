@@ -64,11 +64,7 @@ const TodoForm = ({ addTodo, id, title, complete, updateTodo, setEdit }) => {
 
   return (
     <>  
-      <form name="todo" netlify netlify-honeypot="bot-field" hidden>
-        <input type="text" name="name" />
-        <input type="email" name="email" />
-        <textarea name="message"></textarea>
-      </form>
+      
       <form onSubmit={handleSubmit} name='todo'>
         <label>Todo Title</label>
         <input type="hidden" name="form-name" value="todo" />
