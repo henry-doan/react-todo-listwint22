@@ -4,7 +4,7 @@ const TodoForm = ({ addTodo, id, title, complete, updateTodo, setEdit }) => {
   // title complete, id db
   // attr of what the user can input, datatype
   // have complete be false, b/c you create that is a new todo
-  const [todo, setTodo] = useState({ title: '', complete: false })
+  const [todo, setTodo] = useState({ title: '', complete: false, age: '', date: '' })
 
   // if it is a update then pre fill out the form
   useEffect( () => {
@@ -37,7 +37,7 @@ const TodoForm = ({ addTodo, id, title, complete, updateTodo, setEdit }) => {
 
   return (
     <>  
-      <form onSubmit={handleSubmit}>
+      <form onSubmit={handleSubmit} netlify>
         <label>Todo Title</label>
         <input 
           // need a input for each field
@@ -55,16 +55,26 @@ const TodoForm = ({ addTodo, id, title, complete, updateTodo, setEdit }) => {
           required // more for front end make sure they fill this out
           placeholder="title"
         />
-        {/* <input 
+        <input 
           // these three for it to work
           name='age' // what is the field for
-          value={}
-          onChange
+          value={todo.age}
+          onChange={(e) => setTodo({ ...todo, age: e.target.value })}
 
           // optional
           required
           placeholder="title"
-        /> */}
+        />
+        <input 
+          // these three for it to work
+          name='date' // what is the field for
+          value={todo.date}
+          onChange={(e) => setTodo({ ...todo, date: Date.now() })}
+
+          // optional
+          hidden
+          placeholder="title"
+        />
         <button type='submit'>Submit</button>
       </form>
     </>
