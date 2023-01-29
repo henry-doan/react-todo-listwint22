@@ -24,22 +24,22 @@ const TodoForm = ({ addTodo, id, title, complete, updateTodo, setEdit }) => {
     // when form submits e
     e.preventDefault()
 
-    fetch("/", {
-      method: "POST",
-      headers: { "Content-Type": "application/x-www-form-urlencoded" },
-      body: encode({ "form-name": "todo", ...todo})
-    })
-      .then(
-        res => {
-          console.log(res)
-          debugger
-        }
-      )
-      .catch(error => {
-        alert(error)
-        debugger
-      } 
-      );
+    // fetch("/", {
+    //   method: "POST",
+    //   headers: { "Content-Type": "application/x-www-form-urlencoded" },
+    //   body: encode({ "form-name": "todo", ...todo})
+    // })
+    //   .then(
+    //     res => {
+    //       console.log(res)
+    //       debugger
+    //     }
+    //   )
+    //   .catch(error => {
+    //     alert(error)
+    //     debugger
+    //   } 
+    //   );
 
     
     // not refresh, thus losing our data 
@@ -65,7 +65,7 @@ const TodoForm = ({ addTodo, id, title, complete, updateTodo, setEdit }) => {
   return (
     <>  
       
-      <form onSubmit={handleSubmit} name='todo'>
+      <form onSubmit={handleSubmit} name='todo' method='post'>
         <label>Todo Title</label>
         <input type="hidden" name="form-name" value="todo" />
         <input 
