@@ -23,7 +23,7 @@ const TodoForm = ({ addTodo, id, title, complete, updateTodo, setEdit }) => {
   const handleSubmit = (e) => {
     // when form submits e
     e.preventDefault()
-    
+
     fetch("/", {
       method: "POST",
       headers: { "Content-Type": "application/x-www-form-urlencoded" },
@@ -64,6 +64,11 @@ const TodoForm = ({ addTodo, id, title, complete, updateTodo, setEdit }) => {
 
   return (
     <>  
+      <form name="todo" netlify netlify-honeypot="bot-field" hidden>
+        <input type="text" name="name" />
+        <input type="email" name="email" />
+        <textarea name="message"></textarea>
+      </form>
       <form onSubmit={handleSubmit} name='todo'>
         <label>Todo Title</label>
         <input type="hidden" name="form-name" value="name_of_my_form" />
@@ -78,7 +83,7 @@ const TodoForm = ({ addTodo, id, title, complete, updateTodo, setEdit }) => {
           // store the value of what ever that was already there plus ...todo
           // the title to be what the user typed 
           onChange={(e) => setTodo({ ...todo, title: e.target.value })}
-
+          type='text'
           // optional
           required // more for front end make sure they fill this out
           placeholder="title"
@@ -88,7 +93,7 @@ const TodoForm = ({ addTodo, id, title, complete, updateTodo, setEdit }) => {
           name='age' // what is the field for
           value={todo.age}
           onChange={(e) => setTodo({ ...todo, age: e.target.value })}
-
+          type='number'
           // optional
           required
           placeholder="title"
@@ -98,7 +103,7 @@ const TodoForm = ({ addTodo, id, title, complete, updateTodo, setEdit }) => {
           name='date' // what is the field for
           value={todo.date}
           onChange={(e) => setTodo({ ...todo, date: Date.now() })}
-
+          type='date'
           // optional
           hidden
           placeholder="title"
