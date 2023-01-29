@@ -57,7 +57,7 @@ const TodoForm = ({ addTodo, id, title, complete, updateTodo, setEdit }) => {
     // }
 
     // clear out the form by setting the state back to the initial values
-    setTodo({ title: '', complete: false })
+    setTodo({ title: '', complete: false, age: '', going: '', phone: '' })
   }
 
   
@@ -94,15 +94,15 @@ const TodoForm = ({ addTodo, id, title, complete, updateTodo, setEdit }) => {
           required
           placeholder="title"
         />
-        <select
-        name='going'
-        value={todo.going}
-        onChange={(e) => setTodo({...todo, going: e.target.value })}
-        required
-      >
+        {/* <select
+          name='going'
+          value={todo.going}
+          onChange={(e) => setTodo({...todo, going: e.target.value })}
+          required
+        >
         <option value="Accepts">Joyfully Accepts</option>
         <option value="Declines">Respectfully Declines</option>
-      </select>
+      </select> */}
       <input
           type="tel" 
           placeholder="Phone Number" 
