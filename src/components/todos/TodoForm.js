@@ -4,7 +4,7 @@ const TodoForm = ({ addTodo, id, title, complete, updateTodo, setEdit }) => {
   // title complete, id db
   // attr of what the user can input, datatype
   // have complete be false, b/c you create that is a new todo
-  const [todo, setTodo] = useState({ title: '', complete: false, age: '', going: '', phone: '' })
+  const [todo, setTodo] = useState({ title: '', complete: false, age: '', going: 'Accepts', phone: '', numberOfAttendees: '' })
 
   // if it is a update then pre fill out the form
   useEffect( () => {
@@ -55,7 +55,7 @@ const TodoForm = ({ addTodo, id, title, complete, updateTodo, setEdit }) => {
     // }
 
     // clear out the form by setting the state back to the initial values
-    setTodo({ title: '', complete: false, age: '', going: '', phone: '' })
+    setTodo({ title: '', complete: false, age: '', going: 'Accepts', phone: '', numberOfAttendees: '' })
   }
 
   
@@ -90,7 +90,7 @@ const TodoForm = ({ addTodo, id, title, complete, updateTodo, setEdit }) => {
           type='number'
           // optional
           required
-          placeholder="title"
+          placeholder="age"
         />
         <select
           name='going'
@@ -101,14 +101,38 @@ const TodoForm = ({ addTodo, id, title, complete, updateTodo, setEdit }) => {
           <option value="Accepts">Joyfully Accepts</option>
           <option value="Declines">Respectfully Declines</option>
         </select>
-        <input
+        {/* <input
             type="tel" 
             placeholder="Phone Number" 
             name='phone'
             value={todo.phone}
             onChange={(e) => setTodo({...todo, phone: e.target.value })}
             required
-          />
+          /> */}
+        {
+                todo.going === 'Declines' ?
+                <></>
+                :
+                <>
+                  <input
+                    type="tel" 
+                    placeholder="Phone Number" 
+                    name='phone'
+                    value={todo.phone}
+                    onChange={(e) => setTodo({...todo, phone: e.target.value })}
+                    required
+                  />
+                  <input
+                    type="number" 
+                    name='numberOfAttendees'
+                    value={todo.numberOfAttendees}
+                    onChange={(e) => setTodo({...todo, numberOfAttendees: parseInt(e.target.value) })}
+                    required
+                    placeholder='Numbers Attending'
+                    min="1" max="10"
+                  />
+                </>
+              }
         <button type='submit'>Submit</button>
       </form>
     </>
