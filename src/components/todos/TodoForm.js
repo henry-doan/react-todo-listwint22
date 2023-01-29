@@ -22,15 +22,26 @@ const TodoForm = ({ addTodo, id, title, complete, updateTodo, setEdit }) => {
 
   const handleSubmit = (e) => {
     // when form submits e
+    e.preventDefault()
+    
     fetch("/", {
       method: "POST",
       headers: { "Content-Type": "application/x-www-form-urlencoded" },
       body: encode({ "form-name": "todo", ...todo})
     })
-      .then(() => alert("Success!"))
-      .catch(error => alert(error));
+      .then(
+        res => {
+          console.log(res)
+          debugger
+        }
+      )
+      .catch(error => {
+        alert(error)
+        debugger
+      } 
+      );
 
-    e.preventDefault()
+    
     // not refresh, thus losing our data 
     // not posting to the url
 
@@ -53,7 +64,7 @@ const TodoForm = ({ addTodo, id, title, complete, updateTodo, setEdit }) => {
 
   return (
     <>  
-      <form onSubmit={handleSubmit} netlify-honeypot="bot-field" name="todo" method="POST" data-netlify="true">
+      <form onSubmit={handleSubmit} name='todo'>
         <label>Todo Title</label>
         <input type="hidden" name="form-name" value="name_of_my_form" />
         <input 
