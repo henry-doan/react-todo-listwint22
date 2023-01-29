@@ -71,7 +71,7 @@ const TodoForm = ({ addTodo, id, title, complete, updateTodo, setEdit }) => {
       </form>
       <form onSubmit={handleSubmit} name='todo'>
         <label>Todo Title</label>
-        <input type="hidden" name="form-name" value="name_of_my_form" />
+        <input type="hidden" name="form-name" value="todo" />
         <input 
           // need a input for each field
 
