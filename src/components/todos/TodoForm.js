@@ -37,7 +37,7 @@ const TodoForm = ({ addTodo, id, title, complete, updateTodo, setEdit }) => {
 
   return (
     <>  
-      <form onSubmit={handleSubmit} netlify>
+      <form onSubmit={handleSubmit} name="todo" method="POST" data-netlify="true">
         <label>Todo Title</label>
         <input 
           // need a input for each field
