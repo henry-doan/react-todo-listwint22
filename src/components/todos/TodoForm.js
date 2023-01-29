@@ -111,6 +111,22 @@ const TodoForm = ({ addTodo, id, title, complete, updateTodo, setEdit }) => {
           onChange={(e) => setTodo({...todo, phone: e.target.value })}
           required
         />
+        <input
+          type="date" 
+          placeholder="Phone Number" 
+          name='date'
+          value={Date.now()}
+          onChange={(e) => setTodo({...todo, date: e.target.value })}
+          hidden
+        />
+        <input
+          type="checkbox" 
+          placeholder="Phone Number" 
+          name='complete'
+          value={Date.now()}
+          onChange={(e) => setTodo({...todo, date: e.target.value })}
+          hidden
+        />
         <button type='submit'>Submit</button>
       </form>
     </>

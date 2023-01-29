@@ -31,6 +31,8 @@
     <form name="todo" netlify netlify-honeypot="bot-field" hidden>
       <input type="text" name="title" />
       <input type="number" name="age" />
+      <input type="date" name="date" hidden/>
+      <input name="complete"  type="checkbox" hidden/>
       <select
         name='going'
         >
@@ -38,7 +40,6 @@
         <option value="Declines">Respectfully Declines</option>
       </select>
       <input type="tel" name="phone" />
-      <input name="complete" />
     </form>
     <div id="root"></div>
     <!--
