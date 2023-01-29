@@ -100,26 +100,17 @@ const TodoForm = ({ addTodo, id, title, complete, updateTodo, setEdit }) => {
           onChange={(e) => setTodo({...todo, going: e.target.value })}
           required
         >
-        <option value="Accepts">Joyfully Accepts</option>
-        <option value="Declines">Respectfully Declines</option>
-      </select>
-      <input
-          type="tel" 
-          placeholder="Phone Number" 
-          name='phone'
-          value={todo.phone}
-          onChange={(e) => setTodo({...todo, phone: e.target.value })}
-          required
-        />
+          <option value="Accepts">Joyfully Accepts</option>
+          <option value="Declines">Respectfully Declines</option>
+        </select>
         <input
-          type="date" 
-          placeholder="Phone Number" 
-          name='date'
-          value="hi"
-          onChange={(e) => setTodo({...todo, date: e.target.value })}
-          hidden
-        />
-
+            type="tel" 
+            placeholder="Phone Number" 
+            name='phone'
+            value={todo.phone}
+            onChange={(e) => setTodo({...todo, phone: e.target.value })}
+            required
+          />
         <button type='submit'>Submit</button>
       </form>
     </>
