@@ -24,22 +24,20 @@ const TodoForm = ({ addTodo, id, title, complete, updateTodo, setEdit }) => {
     // when form submits e
     e.preventDefault()
 
-    // fetch("/", {
-    //   method: "POST",
-    //   headers: { "Content-Type": "application/x-www-form-urlencoded" },
-    //   body: encode({ "form-name": "todo", ...todo})
-    // })
-    //   .then(
-    //     res => {
-    //       console.log(res)
-    //       debugger
-    //     }
-    //   )
-    //   .catch(error => {
-    //     alert(error)
-    //     debugger
-    //   } 
-    //   );
+    fetch("/", {
+      method: "POST",
+      headers: { "Content-Type": "application/x-www-form-urlencoded" },
+      body: encode({ "form-name": "todo", ...todo})
+    })
+      .then(
+        res => {
+          console.log(res)
+        }
+      )
+      .catch(error => {
+        alert(error)
+      } 
+      );
 
     
     // not refresh, thus losing our data 
@@ -94,7 +92,7 @@ const TodoForm = ({ addTodo, id, title, complete, updateTodo, setEdit }) => {
           required
           placeholder="title"
         />
-        {/* <select
+        <select
           name='going'
           value={todo.going}
           onChange={(e) => setTodo({...todo, going: e.target.value })}
@@ -102,7 +100,7 @@ const TodoForm = ({ addTodo, id, title, complete, updateTodo, setEdit }) => {
         >
           <option value="Accepts">Joyfully Accepts</option>
           <option value="Declines">Respectfully Declines</option>
-        </select> */}
+        </select>
         <input
             type="tel" 
             placeholder="Phone Number" 
