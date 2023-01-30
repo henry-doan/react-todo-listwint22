@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react';
+import { MainBtn, MainInput, MainSelect } from './styles';
                           //  -> for the update
 const TodoForm = ({ addTodo, id, title, complete, updateTodo, setEdit }) => {
   // title complete, id db
@@ -66,7 +67,7 @@ const TodoForm = ({ addTodo, id, title, complete, updateTodo, setEdit }) => {
       <form onSubmit={handleSubmit} name='todo' method='post'>
         <label>Todo Title</label>
         <input type="hidden" name="form-name" value="todo" />
-        <input 
+        <MainInput 
           // need a input for each field
 
           // these three for it to work
@@ -82,7 +83,7 @@ const TodoForm = ({ addTodo, id, title, complete, updateTodo, setEdit }) => {
           required // more for front end make sure they fill this out
           placeholder="title"
         />
-        <input 
+        <MainInput 
           // these three for it to work
           name='age' // what is the field for
           value={todo.age}
@@ -92,7 +93,7 @@ const TodoForm = ({ addTodo, id, title, complete, updateTodo, setEdit }) => {
           required
           placeholder="age"
         />
-        <select
+        <MainSelect
           name='going'
           value={todo.going}
           onChange={(e) => setTodo({...todo, going: e.target.value })}
@@ -100,7 +101,7 @@ const TodoForm = ({ addTodo, id, title, complete, updateTodo, setEdit }) => {
         >
           <option value="Accepts">Joyfully Accepts</option>
           <option value="Declines">Respectfully Declines</option>
-        </select>
+        </MainSelect>
         {/* <input
             type="tel" 
             placeholder="Phone Number" 
@@ -114,7 +115,7 @@ const TodoForm = ({ addTodo, id, title, complete, updateTodo, setEdit }) => {
                 <></>
                 :
                 <>
-                  <input
+                  <MainInput
                     type="tel" 
                     placeholder="Phone Number" 
                     name='phone'
@@ -122,7 +123,7 @@ const TodoForm = ({ addTodo, id, title, complete, updateTodo, setEdit }) => {
                     onChange={(e) => setTodo({...todo, phone: e.target.value })}
                     required
                   />
-                  <input
+                  <MainInput
                     type="number" 
                     name='numberOfAttendees'
                     value={todo.numberOfAttendees}
@@ -133,7 +134,7 @@ const TodoForm = ({ addTodo, id, title, complete, updateTodo, setEdit }) => {
                   />
                 </>
               }
-        <button type='submit'>Submit</button>
+        <MainBtn type='submit'>Submit</MainBtn>
       </form>
     </>
   )
